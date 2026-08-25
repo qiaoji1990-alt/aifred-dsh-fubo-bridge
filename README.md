@@ -5,6 +5,7 @@ Provider-neutral DSH tools for connecting an Agent to an Aifred/Fubo instance th
 ## What it provides
 
 - `fubo_capability`: read-only access to allowlisted Aifred capabilities.
+- `fubo_capability_resolve`: discover whether the selected Agent has a native capability implementation or whether Aifred's managed service is available.
 - `fubo_action_prepare`: submits an action proposal for Aifred approval; it does not execute side effects.
 
 The plugin never reads the Aifred database directly, never sends messages directly, and never bypasses approval or the unified Action Receipt flow. Aifred remains the source of truth for household data, task state, permissions, and channels.
@@ -40,6 +41,8 @@ fubo_action_prepare
 ```
 
 Use `fubo_capability` only with the allowlisted tool names reported by the Aifred integration documentation. Use `fubo_action_prepare` for side-effecting requests and wait for Aifred's approval result.
+
+For capability negotiation, call `fubo_capability_resolve` with `{ "agentId": "dsh", "capability": "browser" }`. A result with `mode: "dsh-native"` means a DSH browser plugin is installed; `mode: "aifred-managed-cdp"` means the selected DSH brain is still DSH while the browser transport is provided by Aifred.
 
 ## Aifred integration
 

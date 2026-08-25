@@ -29,7 +29,7 @@ export function apply(ctx) {
     name: 'fubo_capability',
     description: 'Read a Fubo capability through the local audited bridge. Use only read operations.',
     parameters: {
-      tool: { type: 'string', required: true, description: 'fubo_runtime_status|fubo_k2_status|fubo_tasks|fubo_intel_status|fubo_cdp_status|fubo_core_tool' },
+      tool: { type: 'string', required: true, description: 'fubo_runtime_status|fubo_k2_status|fubo_tasks|fubo_intel_status|fubo_cdp_status|fubo_capability_resolve|fubo_core_tool' },
       arguments: { type: 'object', additionalProperties: true, description: 'Tool-specific read-only arguments' },
     },
     output: jsonOutput(null),
