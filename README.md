@@ -42,7 +42,9 @@ fubo_action_prepare
 
 Use `fubo_capability` only with the allowlisted tool names reported by the Aifred integration documentation. Use `fubo_action_prepare` for side-effecting requests and wait for Aifred's approval result.
 
-For capability negotiation, call `fubo_capability_resolve` with `{ "agentId": "dsh", "capability": "browser" }`. A result with `mode: "dsh-native"` means a DSH browser plugin is installed; `mode: "aifred-managed-cdp"` means the selected DSH brain is still DSH while the browser transport is provided by Aifred.
+For capability negotiation, call `fubo_capability_resolve` with `{ "agentId": "dsh", "capability": "browser" }`. Browser control is product-owned and always resolves to `mode: "aifred-managed-browser"`; DSH remains the selected brain while Aifred owns the session, credentials, cursor, risk policy and audit trail. Use `fubo_core_tool` with `browser_open`, `browser_snapshot`, `browser_action`, or `browser_close`.
+
+The same read-only bridge exposes `fubo_camera_status`, `fubo_voice_status`, `fubo_commerce_status`, and `fubo_wechat_status`. These report product-owned capability state without returning cookies, tokens, passwords, or approval credentials. Device control, sending messages, login, ordering, and data writes remain Fubo approval/action-receipt operations.
 
 ## Aifred integration
 
