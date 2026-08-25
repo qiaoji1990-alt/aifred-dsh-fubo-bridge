@@ -1,0 +1,19 @@
+{
+  "name": "@fubo/dsh-fubo-bridge",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "description": "Fubo capability tools for DeepSeek Harness",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.6"
+  }
+}
