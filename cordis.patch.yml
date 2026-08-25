@@ -1,0 +1,4 @@
+# Mount the Fubo bridge tool into DSH profiles that install this package.
+- insert:
+    - id: fubo-dsh-bridge
+      name: '@fubo/dsh-fubo-bridge'
